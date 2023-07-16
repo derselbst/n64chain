@@ -44,7 +44,7 @@ if [ ! -f stamps/binutils-configure ]; then
   ../binutils-source/configure \
     --prefix="${SCRIPT_DIR}" \
     --with-lib-path="${SCRIPT_DIR}/lib" \
-    --target=mips64-elf --with-arch=vr4300 \
+    --target=mips-linux --with-arch=vr4300 \
     --enable-64-bit-bfd \
     --enable-plugins \
     --enable-shared \
@@ -90,10 +90,10 @@ if [ ! -f stamps/gcc-configure ]; then
   pushd gcc-build
   ../gcc-source/configure \
     --prefix="${SCRIPT_DIR}" \
-    --target=mips64-elf --with-arch=vr4300 \
+    --target=mips-linux --with-arch=vr4300 \
     --enable-languages=c --without-headers --with-newlib \
-    --with-gnu-as=${SCRIPT_DIR}/bin/mips64-elf-as \
-    --with-gnu-ld=${SCRIPT_DIR}/bin/mips64-elf-ld \
+    --with-gnu-as=${SCRIPT_DIR}/bin/mips-linux-as \
+    --with-gnu-ld=${SCRIPT_DIR}/bin/mips-linux-ld \
     --enable-checking=release \
     --enable-shared \
     --enable-shared-libgcc \
@@ -137,9 +137,9 @@ if [ ! -f stamps/gcc-install ]; then
   popd
 
   # build-win32-toolchain.sh needs this; the cross-compiler build
-  # will look for mips64-elf-cc and we only have mips64-elf-gcc.
+  # will look for mips-linux-cc and we only have mips-linux-gcc.
   pushd "${SCRIPT_DIR}/bin"
-  ln -sfv mips64-elf-{gcc,cc}
+  ln -sfv mips-linux-{gcc,cc}
   popd
 
   touch stamps/gcc-install
