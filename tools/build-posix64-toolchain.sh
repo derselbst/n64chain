@@ -117,6 +117,7 @@ if [ ! -f stamps/gcc-configure ]; then
     --enable-lto \
     --enable-plugin \
     --enable-static \
+    --enable-static-libgcc \
     --without-included-gettext
   popd
 
@@ -126,6 +127,7 @@ fi
 if [ ! -f stamps/gcc-build ]; then
   pushd gcc-build
   make all-gcc -j${numproc}
+  make all-target-libgcc -j${numproc}
   popd
 
   touch stamps/gcc-build
