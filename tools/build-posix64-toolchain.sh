@@ -19,7 +19,7 @@ which getconf >/dev/null 2>/dev/null && {
 
 numproc=`getnumproc`
 
-BINUTILS="ftp://ftp.gnu.org/gnu/binutils/binutils-2.34.tar.bz2"
+BINUTILS="https://ftp.gnu.org/gnu/binutils/binutils-2.33.1.tar.bz2"
 GCC="ftp://ftp.gnu.org/gnu/gcc/gcc-10.1.0/gcc-10.1.0.tar.gz"
 MAKE="ftp://ftp.gnu.org/gnu/make/make-4.3.tar.gz"
 
